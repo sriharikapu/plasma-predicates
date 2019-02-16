@@ -17,6 +17,30 @@ library BasicChecks {
         return (ECRecovery.recover(messageHash, _signature) == _owner);
     }
 
+    function checkSignatures(
+        uint256 _rangeStart,
+        uint256 _rangeEnd,
+        uint256 _exitHeight,
+        bytes[] memory _signatures,
+        address[] memory _owners,
+        uint256 threshold
+    ) internal pure returns (bool) {
+        uint256 signatures = 0;
+        for (uint256 i = 0; i < _signatures.length; i++) {
+            bool validSignature = checkSignature(
+                _rangeStart,
+                _rangeEnd,
+                _exitHeight,
+                _signatures[i],
+                _owners[i]
+            );
+            if (validSignature) {
+                signatures++;
+            }
+        }
+        return (signatures >= threshold);
+    }
+
     function checkBounds(
         uint256 _exitStart,
         uint256 _exitEnd,
