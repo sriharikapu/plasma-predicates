@@ -49,4 +49,17 @@ library BasicChecks {
     ) internal pure returns (bool) {
         return (Math.max(_exitStart, _witnessStart) < Math.min(_exitEnd, _witnessEnd));
     }
+
+    function checkOwner(
+        address _sender,
+        address[] memory _owners
+    ) internal pure returns (bool) {
+        bool validSender = false;
+        for (uint256 i = 0; i < _owners.length; i++) {
+            if (_sender == _owners[i]) {
+                validSender = true;
+            }
+        }
+        return validSender;
+    }
 }

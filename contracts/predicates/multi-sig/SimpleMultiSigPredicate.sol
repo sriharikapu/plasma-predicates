@@ -1,10 +1,11 @@
 pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
-import './IPredicate.sol';
-import '../libraries/BasicChecks.sol';
+import '../IPredicate.sol';
+import '../../libraries/BasicChecks.sol';
+import './MultiSig.sol';
 
-contract SimpleMultiSig is IPredicate {
+contract SimpleMultiSigPredicate is IPredicate {
     /*
      * Structs
      */
@@ -62,12 +63,7 @@ contract SimpleMultiSig is IPredicate {
         StateData memory state = bytesToStateData(_exit.state);
 
         // Check valid transaction sender.
-        bool validSender = false;
-        for (uint256 i = 0; i < state.owners.length; i++) {
-            if (tx.origin == state.owners[i]) {
-                validSender = true;
-            }
-        }
+        bool validSender = BasicChecks.checkOwner(tx.origin, state.owners);
 
         return validSender;
     }
@@ -77,8 +73,9 @@ contract SimpleMultiSig is IPredicate {
         bytes memory _witness
     ) public payable {
         StateData memory state = bytesToStateData(_exit.state);
-        
-        // TODO: Convert into a multisig on the main chain.
+
+        MultiSig multiSig = new MultiSig(state.owners, state.threshold);
+        address(multiSig).transfer(msg.value);
     }
 
 
