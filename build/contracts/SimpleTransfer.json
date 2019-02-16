@@ -1,0 +1,2855 @@
+{
+  "contractName": "SimpleTransfer",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_oldState",
+          "type": "bytes"
+        },
+        {
+          "name": "_newState",
+          "type": "bytes"
+        },
+        {
+          "name": "_witness",
+          "type": "bytes"
+        }
+      ],
+      "name": "validStateTransition",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b50610734806100206000396000f3fe608060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806312f7d17314610046575b600080fd5b34801561005257600080fd5b5061006d60048036036100689190810190610486565b610083565b60405161007a919061059a565b60405180910390f35b600061008d6102ef565b61009685610109565b90506100a0610335565b6100a984610176565b90506000858051906020012090506000836000015173ffffffffffffffffffffffffffffffffffffffff166100e28385600001516101ae565b73ffffffffffffffffffffffffffffffffffffffff16149050809450505050509392505050565b6101116102ef565b600080838060200190516101289190810190610409565b9150915060408051908101604052808373ffffffffffffffffffffffffffffffffffffffff1681526020018273ffffffffffffffffffffffffffffffffffffffff1681525092505050919050565b61017e610335565b6060828060200190516101949190810190610445565b905060206040519081016040528082815250915050919050565b600080600080604185511415156101fa576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016101f1906105b5565b60405180910390fd5b6020850151925060408501519150606085015160001a9050601b8160ff16101561022557601b810190505b601b8160ff161415801561023d5750601c8160ff1614155b1561027d576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610274906105d5565b60405180910390fd5b60018682858560405160008152602001604052604051808581526020018460ff1660ff1681526020018381526020018281526020019450505050506020604051602081039080840390855afa1580156102da573d6000803e3d6000fd5b50505060206040510351935050505092915050565b6040805190810160405280600073ffffffffffffffffffffffffffffffffffffffff168152602001600073ffffffffffffffffffffffffffffffffffffffff1681525090565b602060405190810160405280606081525090565b600061035582516106a6565b905092915050565b600082601f830112151561037057600080fd5b815161038361037e82610622565b6105f5565b9150808252602083016020830185838301111561039f57600080fd5b6103aa8382846106c7565b50505092915050565b600082601f83011215156103c657600080fd5b81356103d96103d48261064e565b6105f5565b915080825260208301602083018583830111156103f557600080fd5b6104008382846106b8565b50505092915050565b6000806040838503121561041c57600080fd5b600061042a85828601610349565b925050602061043b85828601610349565b9150509250929050565b60006020828403121561045757600080fd5b600082015167ffffffffffffffff81111561047157600080fd5b61047d8482850161035d565b91505092915050565b60008060006060848603121561049b57600080fd5b600084013567ffffffffffffffff8111156104b557600080fd5b6104c1868287016103b3565b935050602084013567ffffffffffffffff8111156104de57600080fd5b6104ea868287016103b3565b925050604084013567ffffffffffffffff81111561050757600080fd5b610513868287016103b3565b9150509250925092565b6105268161067a565b82525050565b6000601982527f496e76616c6964207369676e6174757265206c656e6774682e000000000000006020830152604082019050919050565b6000601a82527f496e76616c6964207369676e61747572652076657273696f6e2e0000000000006020830152604082019050919050565b60006020820190506105af600083018461051d565b92915050565b600060208201905081810360008301526105ce8161052c565b9050919050565b600060208201905081810360008301526105ee81610563565b9050919050565b6000604051905081810181811067ffffffffffffffff8211171561061857600080fd5b8060405250919050565b600067ffffffffffffffff82111561063957600080fd5b601f19601f8301169050602081019050919050565b600067ffffffffffffffff82111561066557600080fd5b601f19601f8301169050602081019050919050565b60008115159050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b60006106b182610686565b9050919050565b82818337600083830152505050565b60005b838110156106e55780820151818401526020810190506106ca565b838111156106f4576000848401525b5050505056fea265627a7a72305820d07bb995a66e0e53215483799ca6a76f18dfed6f185167a62119a7cec87f8a156c6578706572696d656e74616cf50037",
+  "deployedBytecode": "0x608060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806312f7d17314610046575b600080fd5b34801561005257600080fd5b5061006d60048036036100689190810190610486565b610083565b60405161007a919061059a565b60405180910390f35b600061008d6102ef565b61009685610109565b90506100a0610335565b6100a984610176565b90506000858051906020012090506000836000015173ffffffffffffffffffffffffffffffffffffffff166100e28385600001516101ae565b73ffffffffffffffffffffffffffffffffffffffff16149050809450505050509392505050565b6101116102ef565b600080838060200190516101289190810190610409565b9150915060408051908101604052808373ffffffffffffffffffffffffffffffffffffffff1681526020018273ffffffffffffffffffffffffffffffffffffffff1681525092505050919050565b61017e610335565b6060828060200190516101949190810190610445565b905060206040519081016040528082815250915050919050565b600080600080604185511415156101fa576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016101f1906105b5565b60405180910390fd5b6020850151925060408501519150606085015160001a9050601b8160ff16101561022557601b810190505b601b8160ff161415801561023d5750601c8160ff1614155b1561027d576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610274906105d5565b60405180910390fd5b60018682858560405160008152602001604052604051808581526020018460ff1660ff1681526020018381526020018281526020019450505050506020604051602081039080840390855afa1580156102da573d6000803e3d6000fd5b50505060206040510351935050505092915050565b6040805190810160405280600073ffffffffffffffffffffffffffffffffffffffff168152602001600073ffffffffffffffffffffffffffffffffffffffff1681525090565b602060405190810160405280606081525090565b600061035582516106a6565b905092915050565b600082601f830112151561037057600080fd5b815161038361037e82610622565b6105f5565b9150808252602083016020830185838301111561039f57600080fd5b6103aa8382846106c7565b50505092915050565b600082601f83011215156103c657600080fd5b81356103d96103d48261064e565b6105f5565b915080825260208301602083018583830111156103f557600080fd5b6104008382846106b8565b50505092915050565b6000806040838503121561041c57600080fd5b600061042a85828601610349565b925050602061043b85828601610349565b9150509250929050565b60006020828403121561045757600080fd5b600082015167ffffffffffffffff81111561047157600080fd5b61047d8482850161035d565b91505092915050565b60008060006060848603121561049b57600080fd5b600084013567ffffffffffffffff8111156104b557600080fd5b6104c1868287016103b3565b935050602084013567ffffffffffffffff8111156104de57600080fd5b6104ea868287016103b3565b925050604084013567ffffffffffffffff81111561050757600080fd5b610513868287016103b3565b9150509250925092565b6105268161067a565b82525050565b6000601982527f496e76616c6964207369676e6174757265206c656e6774682e000000000000006020830152604082019050919050565b6000601a82527f496e76616c6964207369676e61747572652076657273696f6e2e0000000000006020830152604082019050919050565b60006020820190506105af600083018461051d565b92915050565b600060208201905081810360008301526105ce8161052c565b9050919050565b600060208201905081810360008301526105ee81610563565b9050919050565b6000604051905081810181811067ffffffffffffffff8211171561061857600080fd5b8060405250919050565b600067ffffffffffffffff82111561063957600080fd5b601f19601f8301169050602081019050919050565b600067ffffffffffffffff82111561066557600080fd5b601f19601f8301169050602081019050919050565b60008115159050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b60006106b182610686565b9050919050565b82818337600083830152505050565b60005b838110156106e55780820151818401526020810190506106ca565b838111156106f4576000848401525b5050505056fea265627a7a72305820d07bb995a66e0e53215483799ca6a76f18dfed6f185167a62119a7cec87f8a156c6578706572696d656e74616cf50037",
+  "sourceMap": "87:1211:2:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;87:1211:2;;;;;;;",
+  "deployedSourceMap": "87:1211:2:-;;;;;;;;;;;;;;;;;;;;;;;;774:522;;8:9:-1;5:2;;;30:1;27;20:12;5:2;774:522:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;926:4;942:27;;:::i;:::-;972:29;991:9;972:18;:29::i;:::-;942:59;;1011:22;;:::i;:::-;1036:24;1051:8;1036:14;:24::i;:::-;1011:49;;1115:14;1142:9;1132:20;;;;;;1115:37;;1162:19;1234:8;:14;;;1185:63;;:45;1204:6;1212:7;:17;;;1185:18;:45::i;:::-;:63;;;1162:87;;1275:14;1268:21;;;;;;774:522;;;;;:::o;256:278::-;342:18;;:::i;:::-;373:13;388:17;420:6;409:38;;;;;;;;;;;;;;372:75;;;;464:63;;;;;;;;;489:5;464:63;;;;;;508:9;464:63;;;;;457:70;;;;256:278;;;:::o;540:228::-;624:14;;:::i;:::-;650:22;686:8;675:29;;;;;;;;;;;;;;650:54;;721:40;;;;;;;;;742:9;721:40;;;714:47;;;540:228;;;:::o;465:856:0:-;539:7;558:9;577;596:7;672:2;657:4;:11;:17;;653:83;;;690:35;;;;;;;;;;;;;;;;;;;653:83;848:2;842:4;838:13;832:20;827:25;;886:2;880:4;876:13;870:20;865:25;;932:2;926:4;922:13;916:20;913:1;908:29;903:34;;1057:2;1053:1;:6;;;1049:44;;;1080:2;1075:7;;;;1049:44;1176:2;1171:1;:7;;;;:18;;;;;1187:2;1182:1;:7;;;;1171:18;1167:148;;;1205:36;;;;;;;;;;;;;;;;;;;1167:148;1279:25;1289:5;1296:1;1299;1302;1279:25;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;1279:25:0;;;;;;;;1272:32;;;;;465:856;;;;:::o;87:1211:2:-;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;:::o;5:138:-1:-;;91:47;130:6;124:13;91:47;;;82:56;;76:67;;;;;151:434;;259:3;252:4;244:6;240:17;236:27;229:35;226:2;;;277:1;274;267:12;226:2;307:6;301:13;329:60;344:44;381:6;344:44;;;329:60;;;320:69;;409:6;402:5;395:21;445:4;437:6;433:17;478:4;471:5;467:16;513:3;504:6;499:3;495:16;492:25;489:2;;;530:1;527;520:12;489:2;540:39;572:6;567:3;562;540:39;;;219:366;;;;;;;;594:440;;695:3;688:4;680:6;676:17;672:27;665:35;662:2;;;713:1;710;703:12;662:2;750:6;737:20;772:64;787:48;828:6;787:48;;;772:64;;;763:73;;856:6;849:5;842:21;892:4;884:6;880:17;925:4;918:5;914:16;960:3;951:6;946:3;942:16;939:25;936:2;;;977:1;974;967:12;936:2;987:41;1021:6;1016:3;1011;987:41;;;655:379;;;;;;;;1042:431;;;1190:2;1178:9;1169:7;1165:23;1161:32;1158:2;;;1206:1;1203;1196:12;1158:2;1241:1;1258:72;1322:7;1313:6;1302:9;1298:22;1258:72;;;1248:82;;1220:116;1367:2;1385:72;1449:7;1440:6;1429:9;1425:22;1385:72;;;1375:82;;1346:117;1152:321;;;;;;1480:352;;1600:2;1588:9;1579:7;1575:23;1571:32;1568:2;;;1616:1;1613;1606:12;1568:2;1672:1;1661:9;1657:17;1651:24;1695:18;1687:6;1684:30;1681:2;;;1727:1;1724;1717:12;1681:2;1747:69;1808:7;1799:6;1788:9;1784:22;1747:69;;;1737:79;;1630:192;1562:270;;;;;1839:803;;;;2004:2;1992:9;1983:7;1979:23;1975:32;1972:2;;;2020:1;2017;2010:12;1972:2;2083:1;2072:9;2068:17;2055:31;2106:18;2098:6;2095:30;2092:2;;;2138:1;2135;2128:12;2092:2;2158:62;2212:7;2203:6;2192:9;2188:22;2158:62;;;2148:72;;2034:192;2285:2;2274:9;2270:18;2257:32;2309:18;2301:6;2298:30;2295:2;;;2341:1;2338;2331:12;2295:2;2361:62;2415:7;2406:6;2395:9;2391:22;2361:62;;;2351:72;;2236:193;2488:2;2477:9;2473:18;2460:32;2512:18;2504:6;2501:30;2498:2;;;2544:1;2541;2534:12;2498:2;2564:62;2618:7;2609:6;2598:9;2594:22;2564:62;;;2554:72;;2439:193;1966:676;;;;;;2649:101;2716:28;2738:5;2716:28;;;2711:3;2704:41;2698:52;;;2758:296;;2913:2;2908:3;2901:15;2950:66;2945:2;2940:3;2936:12;2929:88;3045:2;3040:3;3036:12;3029:19;;2894:160;;;;3063:296;;3218:2;3213:3;3206:15;3255:66;3250:2;3245:3;3241:12;3234:88;3350:2;3345:3;3341:12;3334:19;;3199:160;;;;3367:181;;3469:2;3458:9;3454:18;3446:26;;3483:55;3535:1;3524:9;3520:17;3511:6;3483:55;;;3440:108;;;;;3555:387;;3736:2;3725:9;3721:18;3713:26;;3786:9;3780:4;3776:20;3772:1;3761:9;3757:17;3750:47;3811:121;3927:4;3811:121;;;3803:129;;3707:235;;;;3949:387;;4130:2;4119:9;4115:18;4107:26;;4180:9;4174:4;4170:20;4166:1;4155:9;4151:17;4144:47;4205:121;4321:4;4205:121;;;4197:129;;4101:235;;;;4343:256;;4405:2;4399:9;4389:19;;4443:4;4435:6;4431:17;4542:6;4530:10;4527:22;4506:18;4494:10;4491:34;4488:62;4485:2;;;4563:1;4560;4553:12;4485:2;4583:10;4579:2;4572:22;4383:216;;;;;4606:254;;4745:18;4737:6;4734:30;4731:2;;;4777:1;4774;4767:12;4731:2;4821:4;4817:9;4810:4;4802:6;4798:17;4794:33;4786:41;;4850:4;4844;4840:15;4832:23;;4668:192;;;;4867:258;;5010:18;5002:6;4999:30;4996:2;;;5042:1;5039;5032:12;4996:2;5086:4;5082:9;5075:4;5067:6;5063:17;5059:33;5051:41;;5115:4;5109;5105:15;5097:23;;4933:192;;;;5132:92;;5212:5;5205:13;5198:21;5187:32;;5181:43;;;;5231:128;;5311:42;5304:5;5300:54;5289:65;;5283:76;;;;5366:113;;5443:31;5468:5;5443:31;;;5432:42;;5426:53;;;;5487:145;5568:6;5563:3;5558;5545:30;5624:1;5615:6;5610:3;5606:16;5599:27;5538:94;;;;5641:268;5706:1;5713:101;5727:6;5724:1;5721:13;5713:101;;;5803:1;5798:3;5794:11;5788:18;5784:1;5779:3;5775:11;5768:39;5749:2;5746:1;5742:10;5737:15;;5713:101;;;5829:6;5826:1;5823:13;5820:2;;;5894:1;5885:6;5880:3;5876:16;5869:27;5820:2;5690:219;;;;",
+  "source": "pragma solidity ^0.5.0;\npragma experimental ABIEncoderV2;\n\nimport './ECRecovery.sol';\n\ncontract SimpleTransfer {\n    struct StateObject {\n        address owner;\n        address predicate;\n    }\n    \n    struct Witness {\n        bytes signature;\n    }\n\n    function bytesToStateObject(\n        bytes memory _state\n    ) internal pure returns (StateObject memory) {\n        (address owner, address predicate) = abi.decode(_state, (address, address));\n        return StateObject(\n            owner,\n            predicate\n        );\n    }\n\n    function bytesToWitness(\n        bytes memory _witness\n    ) internal pure returns (Witness memory) {\n        bytes memory signature = abi.decode(_witness, (bytes));\n        return Witness(\n            signature\n        );\n    }\n\n    function validStateTransition(\n        bytes memory _oldState,\n        bytes memory _newState,\n        bytes memory _witness\n    ) public pure returns (bool) {\n        StateObject memory oldState = bytesToStateObject(_oldState);\n        Witness memory witness = bytesToWitness(_witness);\n\n        // Check the transaction signature.\n        bytes32 txhash = keccak256(_newState);\n        bool validSignature = (ECRecovery.recover(txhash, witness.signature) == oldState.owner);\n        \n        return validSignature;\n    }\n}\n",
+  "sourcePath": "/home/k/Projects/pg/plasma-wtf/contracts/SimpleTransfer.sol",
+  "ast": {
+    "absolutePath": "/home/k/Projects/pg/plasma-wtf/contracts/SimpleTransfer.sol",
+    "exportedSymbols": {
+      "SimpleTransfer": [
+        223
+      ]
+    },
+    "id": 224,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 121,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:2"
+      },
+      {
+        "id": 122,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:2"
+      },
+      {
+        "absolutePath": "/home/k/Projects/pg/plasma-wtf/contracts/ECRecovery.sol",
+        "file": "./ECRecovery.sol",
+        "id": 123,
+        "nodeType": "ImportDirective",
+        "scope": 224,
+        "sourceUnit": 63,
+        "src": "59:26:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 223,
+        "linearizedBaseContracts": [
+          223
+        ],
+        "name": "SimpleTransfer",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "SimpleTransfer.StateObject",
+            "id": 128,
+            "members": [
+              {
+                "constant": false,
+                "id": 125,
+                "name": "owner",
+                "nodeType": "VariableDeclaration",
+                "scope": 128,
+                "src": "146:13:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 124,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "146:7:2",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 127,
+                "name": "predicate",
+                "nodeType": "VariableDeclaration",
+                "scope": 128,
+                "src": "169:17:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 126,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "169:7:2",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "StateObject",
+            "nodeType": "StructDefinition",
+            "scope": 223,
+            "src": "117:76:2",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "SimpleTransfer.Witness",
+            "id": 131,
+            "members": [
+              {
+                "constant": false,
+                "id": 130,
+                "name": "signature",
+                "nodeType": "VariableDeclaration",
+                "scope": 131,
+                "src": "228:15:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 129,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "228:5:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Witness",
+            "nodeType": "StructDefinition",
+            "scope": 223,
+            "src": "203:47:2",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 155,
+              "nodeType": "Block",
+              "src": "362:172:2",
+              "statements": [
+                {
+                  "assignments": [
+                    139,
+                    141
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 139,
+                      "name": "owner",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 155,
+                      "src": "373:13:2",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      },
+                      "typeName": {
+                        "id": 138,
+                        "name": "address",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "373:7:2",
+                        "stateMutability": "nonpayable",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    {
+                      "constant": false,
+                      "id": 141,
+                      "name": "predicate",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 155,
+                      "src": "388:17:2",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      },
+                      "typeName": {
+                        "id": 140,
+                        "name": "address",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "388:7:2",
+                        "stateMutability": "nonpayable",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 149,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 144,
+                        "name": "_state",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 133,
+                        "src": "420:6:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "components": [
+                          {
+                            "argumentTypes": null,
+                            "id": 145,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "nodeType": "ElementaryTypeNameExpression",
+                            "src": "429:7:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_address_$",
+                              "typeString": "type(address)"
+                            },
+                            "typeName": "address"
+                          },
+                          {
+                            "argumentTypes": null,
+                            "id": 146,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "nodeType": "ElementaryTypeNameExpression",
+                            "src": "438:7:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_address_$",
+                              "typeString": "type(address)"
+                            },
+                            "typeName": "address"
+                          }
+                        ],
+                        "id": 147,
+                        "isConstant": false,
+                        "isInlineArray": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "nodeType": "TupleExpression",
+                        "src": "428:18:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_tuple$_t_type$_t_address_$_$_t_type$_t_address_$_$",
+                          "typeString": "tuple(type(address),type(address))"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        },
+                        {
+                          "typeIdentifier": "t_tuple$_t_type$_t_address_$_$_t_type$_t_address_$_$",
+                          "typeString": "tuple(type(address),type(address))"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 142,
+                        "name": "abi",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 225,
+                        "src": "409:3:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_abi",
+                          "typeString": "abi"
+                        }
+                      },
+                      "id": 143,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "decode",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "409:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_abidecode_pure$__$returns$__$",
+                        "typeString": "function () pure"
+                      }
+                    },
+                    "id": 148,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "409:38:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$_t_address_payable_$_t_address_payable_$",
+                      "typeString": "tuple(address payable,address payable)"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "372:75:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 151,
+                        "name": "owner",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 139,
+                        "src": "489:5:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 152,
+                        "name": "predicate",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 141,
+                        "src": "508:9:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 150,
+                      "name": "StateObject",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 128,
+                      "src": "464:11:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_StateObject_$128_storage_ptr_$",
+                        "typeString": "type(struct SimpleTransfer.StateObject storage pointer)"
+                      }
+                    },
+                    "id": 153,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "464:63:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_StateObject_$128_memory",
+                      "typeString": "struct SimpleTransfer.StateObject memory"
+                    }
+                  },
+                  "functionReturnParameters": 137,
+                  "id": 154,
+                  "nodeType": "Return",
+                  "src": "457:70:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 156,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "bytesToStateObject",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 134,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 133,
+                  "name": "_state",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 156,
+                  "src": "293:19:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 132,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "293:5:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "283:35:2"
+            },
+            "returnParameters": {
+              "id": 137,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 136,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 156,
+                  "src": "342:18:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_StateObject_$128_memory_ptr",
+                    "typeString": "struct SimpleTransfer.StateObject"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 135,
+                    "name": "StateObject",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 128,
+                    "src": "342:11:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_StateObject_$128_storage_ptr",
+                      "typeString": "struct SimpleTransfer.StateObject"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "341:20:2"
+            },
+            "scope": 223,
+            "src": "256:278:2",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 176,
+              "nodeType": "Block",
+              "src": "640:128:2",
+              "statements": [
+                {
+                  "assignments": [
+                    164
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 164,
+                      "name": "signature",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 176,
+                      "src": "650:22:2",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes_memory_ptr",
+                        "typeString": "bytes"
+                      },
+                      "typeName": {
+                        "id": 163,
+                        "name": "bytes",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "650:5:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_storage_ptr",
+                          "typeString": "bytes"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 171,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 167,
+                        "name": "_witness",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 158,
+                        "src": "686:8:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "components": [
+                          {
+                            "argumentTypes": null,
+                            "id": 168,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "nodeType": "ElementaryTypeNameExpression",
+                            "src": "697:5:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_bytes_storage_ptr_$",
+                              "typeString": "type(bytes storage pointer)"
+                            },
+                            "typeName": "bytes"
+                          }
+                        ],
+                        "id": 169,
+                        "isConstant": false,
+                        "isInlineArray": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "nodeType": "TupleExpression",
+                        "src": "696:7:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_bytes_storage_ptr_$",
+                          "typeString": "type(bytes storage pointer)"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        },
+                        {
+                          "typeIdentifier": "t_type$_t_bytes_storage_ptr_$",
+                          "typeString": "type(bytes storage pointer)"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 165,
+                        "name": "abi",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 225,
+                        "src": "675:3:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_abi",
+                          "typeString": "abi"
+                        }
+                      },
+                      "id": 166,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "decode",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "675:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_abidecode_pure$__$returns$__$",
+                        "typeString": "function () pure"
+                      }
+                    },
+                    "id": 170,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "675:29:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_memory",
+                      "typeString": "bytes memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "650:54:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 173,
+                        "name": "signature",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 164,
+                        "src": "742:9:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 172,
+                      "name": "Witness",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 131,
+                      "src": "721:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_Witness_$131_storage_ptr_$",
+                        "typeString": "type(struct SimpleTransfer.Witness storage pointer)"
+                      }
+                    },
+                    "id": 174,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "721:40:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Witness_$131_memory",
+                      "typeString": "struct SimpleTransfer.Witness memory"
+                    }
+                  },
+                  "functionReturnParameters": 162,
+                  "id": 175,
+                  "nodeType": "Return",
+                  "src": "714:47:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 177,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "bytesToWitness",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 159,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 158,
+                  "name": "_witness",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 177,
+                  "src": "573:21:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 157,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "573:5:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "563:37:2"
+            },
+            "returnParameters": {
+              "id": 162,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 161,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 177,
+                  "src": "624:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Witness_$131_memory_ptr",
+                    "typeString": "struct SimpleTransfer.Witness"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 160,
+                    "name": "Witness",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 131,
+                    "src": "624:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Witness_$131_storage_ptr",
+                      "typeString": "struct SimpleTransfer.Witness"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "623:16:2"
+            },
+            "scope": 223,
+            "src": "540:228:2",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 221,
+              "nodeType": "Block",
+              "src": "932:364:2",
+              "statements": [
+                {
+                  "assignments": [
+                    189
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 189,
+                      "name": "oldState",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 221,
+                      "src": "942:27:2",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_StateObject_$128_memory_ptr",
+                        "typeString": "struct SimpleTransfer.StateObject"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 188,
+                        "name": "StateObject",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 128,
+                        "src": "942:11:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_StateObject_$128_storage_ptr",
+                          "typeString": "struct SimpleTransfer.StateObject"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 193,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 191,
+                        "name": "_oldState",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 179,
+                        "src": "991:9:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 190,
+                      "name": "bytesToStateObject",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 156,
+                      "src": "972:18:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_pure$_t_bytes_memory_ptr_$returns$_t_struct$_StateObject_$128_memory_ptr_$",
+                        "typeString": "function (bytes memory) pure returns (struct SimpleTransfer.StateObject memory)"
+                      }
+                    },
+                    "id": 192,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "972:29:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_StateObject_$128_memory_ptr",
+                      "typeString": "struct SimpleTransfer.StateObject memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "942:59:2"
+                },
+                {
+                  "assignments": [
+                    195
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 195,
+                      "name": "witness",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 221,
+                      "src": "1011:22:2",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Witness_$131_memory_ptr",
+                        "typeString": "struct SimpleTransfer.Witness"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 194,
+                        "name": "Witness",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 131,
+                        "src": "1011:7:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Witness_$131_storage_ptr",
+                          "typeString": "struct SimpleTransfer.Witness"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 199,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 197,
+                        "name": "_witness",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 183,
+                        "src": "1051:8:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 196,
+                      "name": "bytesToWitness",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 177,
+                      "src": "1036:14:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_pure$_t_bytes_memory_ptr_$returns$_t_struct$_Witness_$131_memory_ptr_$",
+                        "typeString": "function (bytes memory) pure returns (struct SimpleTransfer.Witness memory)"
+                      }
+                    },
+                    "id": 198,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1036:24:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Witness_$131_memory_ptr",
+                      "typeString": "struct SimpleTransfer.Witness memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1011:49:2"
+                },
+                {
+                  "assignments": [
+                    201
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 201,
+                      "name": "txhash",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 221,
+                      "src": "1115:14:2",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      },
+                      "typeName": {
+                        "id": 200,
+                        "name": "bytes32",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1115:7:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 205,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 203,
+                        "name": "_newState",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 181,
+                        "src": "1142:9:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 202,
+                      "name": "keccak256",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 232,
+                      "src": "1132:9:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                        "typeString": "function (bytes memory) pure returns (bytes32)"
+                      }
+                    },
+                    "id": 204,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1132:20:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1115:37:2"
+                },
+                {
+                  "assignments": [
+                    207
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 207,
+                      "name": "validSignature",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 221,
+                      "src": "1162:19:2",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "typeName": {
+                        "id": 206,
+                        "name": "bool",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1162:4:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 218,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 216,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "id": 210,
+                              "name": "txhash",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 201,
+                              "src": "1204:6:2",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes32",
+                                "typeString": "bytes32"
+                              }
+                            },
+                            {
+                              "argumentTypes": null,
+                              "expression": {
+                                "argumentTypes": null,
+                                "id": 211,
+                                "name": "witness",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 195,
+                                "src": "1212:7:2",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_struct$_Witness_$131_memory_ptr",
+                                  "typeString": "struct SimpleTransfer.Witness memory"
+                                }
+                              },
+                              "id": 212,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "signature",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 130,
+                              "src": "1212:17:2",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes_memory",
+                                "typeString": "bytes memory"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_bytes32",
+                                "typeString": "bytes32"
+                              },
+                              {
+                                "typeIdentifier": "t_bytes_memory",
+                                "typeString": "bytes memory"
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 208,
+                              "name": "ECRecovery",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 62,
+                              "src": "1185:10:2",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_contract$_ECRecovery_$62_$",
+                                "typeString": "type(library ECRecovery)"
+                              }
+                            },
+                            "id": 209,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "recover",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 61,
+                            "src": "1185:18:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_internal_pure$_t_bytes32_$_t_bytes_memory_ptr_$returns$_t_address_$",
+                              "typeString": "function (bytes32,bytes memory) pure returns (address)"
+                            }
+                          },
+                          "id": 213,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "1185:45:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 214,
+                            "name": "oldState",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 189,
+                            "src": "1234:8:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_StateObject_$128_memory_ptr",
+                              "typeString": "struct SimpleTransfer.StateObject memory"
+                            }
+                          },
+                          "id": 215,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "owner",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 125,
+                          "src": "1234:14:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "1185:63:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "id": 217,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "1184:65:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1162:87:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 219,
+                    "name": "validSignature",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 207,
+                    "src": "1275:14:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 187,
+                  "id": 220,
+                  "nodeType": "Return",
+                  "src": "1268:21:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 222,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "validStateTransition",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 184,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 179,
+                  "name": "_oldState",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 222,
+                  "src": "813:22:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 178,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "813:5:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 181,
+                  "name": "_newState",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 222,
+                  "src": "845:22:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 180,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "845:5:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 183,
+                  "name": "_witness",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 222,
+                  "src": "877:21:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 182,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "877:5:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "803:101:2"
+            },
+            "returnParameters": {
+              "id": 187,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 186,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 222,
+                  "src": "926:4:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 185,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "926:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "925:6:2"
+            },
+            "scope": 223,
+            "src": "774:522:2",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 224,
+        "src": "87:1211:2"
+      }
+    ],
+    "src": "0:1299:2"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/k/Projects/pg/plasma-wtf/contracts/SimpleTransfer.sol",
+    "exportedSymbols": {
+      "SimpleTransfer": [
+        223
+      ]
+    },
+    "id": 224,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 121,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:2"
+      },
+      {
+        "id": 122,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:2"
+      },
+      {
+        "absolutePath": "/home/k/Projects/pg/plasma-wtf/contracts/ECRecovery.sol",
+        "file": "./ECRecovery.sol",
+        "id": 123,
+        "nodeType": "ImportDirective",
+        "scope": 224,
+        "sourceUnit": 63,
+        "src": "59:26:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 223,
+        "linearizedBaseContracts": [
+          223
+        ],
+        "name": "SimpleTransfer",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "SimpleTransfer.StateObject",
+            "id": 128,
+            "members": [
+              {
+                "constant": false,
+                "id": 125,
+                "name": "owner",
+                "nodeType": "VariableDeclaration",
+                "scope": 128,
+                "src": "146:13:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 124,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "146:7:2",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 127,
+                "name": "predicate",
+                "nodeType": "VariableDeclaration",
+                "scope": 128,
+                "src": "169:17:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 126,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "169:7:2",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "StateObject",
+            "nodeType": "StructDefinition",
+            "scope": 223,
+            "src": "117:76:2",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "SimpleTransfer.Witness",
+            "id": 131,
+            "members": [
+              {
+                "constant": false,
+                "id": 130,
+                "name": "signature",
+                "nodeType": "VariableDeclaration",
+                "scope": 131,
+                "src": "228:15:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 129,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "228:5:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Witness",
+            "nodeType": "StructDefinition",
+            "scope": 223,
+            "src": "203:47:2",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 155,
+              "nodeType": "Block",
+              "src": "362:172:2",
+              "statements": [
+                {
+                  "assignments": [
+                    139,
+                    141
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 139,
+                      "name": "owner",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 155,
+                      "src": "373:13:2",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      },
+                      "typeName": {
+                        "id": 138,
+                        "name": "address",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "373:7:2",
+                        "stateMutability": "nonpayable",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    {
+                      "constant": false,
+                      "id": 141,
+                      "name": "predicate",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 155,
+                      "src": "388:17:2",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      },
+                      "typeName": {
+                        "id": 140,
+                        "name": "address",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "388:7:2",
+                        "stateMutability": "nonpayable",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 149,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 144,
+                        "name": "_state",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 133,
+                        "src": "420:6:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "components": [
+                          {
+                            "argumentTypes": null,
+                            "id": 145,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "nodeType": "ElementaryTypeNameExpression",
+                            "src": "429:7:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_address_$",
+                              "typeString": "type(address)"
+                            },
+                            "typeName": "address"
+                          },
+                          {
+                            "argumentTypes": null,
+                            "id": 146,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "nodeType": "ElementaryTypeNameExpression",
+                            "src": "438:7:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_address_$",
+                              "typeString": "type(address)"
+                            },
+                            "typeName": "address"
+                          }
+                        ],
+                        "id": 147,
+                        "isConstant": false,
+                        "isInlineArray": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "nodeType": "TupleExpression",
+                        "src": "428:18:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_tuple$_t_type$_t_address_$_$_t_type$_t_address_$_$",
+                          "typeString": "tuple(type(address),type(address))"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        },
+                        {
+                          "typeIdentifier": "t_tuple$_t_type$_t_address_$_$_t_type$_t_address_$_$",
+                          "typeString": "tuple(type(address),type(address))"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 142,
+                        "name": "abi",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 225,
+                        "src": "409:3:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_abi",
+                          "typeString": "abi"
+                        }
+                      },
+                      "id": 143,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "decode",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "409:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_abidecode_pure$__$returns$__$",
+                        "typeString": "function () pure"
+                      }
+                    },
+                    "id": 148,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "409:38:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$_t_address_payable_$_t_address_payable_$",
+                      "typeString": "tuple(address payable,address payable)"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "372:75:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 151,
+                        "name": "owner",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 139,
+                        "src": "489:5:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 152,
+                        "name": "predicate",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 141,
+                        "src": "508:9:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 150,
+                      "name": "StateObject",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 128,
+                      "src": "464:11:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_StateObject_$128_storage_ptr_$",
+                        "typeString": "type(struct SimpleTransfer.StateObject storage pointer)"
+                      }
+                    },
+                    "id": 153,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "464:63:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_StateObject_$128_memory",
+                      "typeString": "struct SimpleTransfer.StateObject memory"
+                    }
+                  },
+                  "functionReturnParameters": 137,
+                  "id": 154,
+                  "nodeType": "Return",
+                  "src": "457:70:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 156,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "bytesToStateObject",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 134,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 133,
+                  "name": "_state",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 156,
+                  "src": "293:19:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 132,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "293:5:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "283:35:2"
+            },
+            "returnParameters": {
+              "id": 137,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 136,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 156,
+                  "src": "342:18:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_StateObject_$128_memory_ptr",
+                    "typeString": "struct SimpleTransfer.StateObject"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 135,
+                    "name": "StateObject",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 128,
+                    "src": "342:11:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_StateObject_$128_storage_ptr",
+                      "typeString": "struct SimpleTransfer.StateObject"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "341:20:2"
+            },
+            "scope": 223,
+            "src": "256:278:2",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 176,
+              "nodeType": "Block",
+              "src": "640:128:2",
+              "statements": [
+                {
+                  "assignments": [
+                    164
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 164,
+                      "name": "signature",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 176,
+                      "src": "650:22:2",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes_memory_ptr",
+                        "typeString": "bytes"
+                      },
+                      "typeName": {
+                        "id": 163,
+                        "name": "bytes",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "650:5:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_storage_ptr",
+                          "typeString": "bytes"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 171,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 167,
+                        "name": "_witness",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 158,
+                        "src": "686:8:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "components": [
+                          {
+                            "argumentTypes": null,
+                            "id": 168,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "nodeType": "ElementaryTypeNameExpression",
+                            "src": "697:5:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_bytes_storage_ptr_$",
+                              "typeString": "type(bytes storage pointer)"
+                            },
+                            "typeName": "bytes"
+                          }
+                        ],
+                        "id": 169,
+                        "isConstant": false,
+                        "isInlineArray": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "nodeType": "TupleExpression",
+                        "src": "696:7:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_bytes_storage_ptr_$",
+                          "typeString": "type(bytes storage pointer)"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        },
+                        {
+                          "typeIdentifier": "t_type$_t_bytes_storage_ptr_$",
+                          "typeString": "type(bytes storage pointer)"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 165,
+                        "name": "abi",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 225,
+                        "src": "675:3:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_abi",
+                          "typeString": "abi"
+                        }
+                      },
+                      "id": 166,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "decode",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "675:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_abidecode_pure$__$returns$__$",
+                        "typeString": "function () pure"
+                      }
+                    },
+                    "id": 170,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "675:29:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_memory",
+                      "typeString": "bytes memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "650:54:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 173,
+                        "name": "signature",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 164,
+                        "src": "742:9:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 172,
+                      "name": "Witness",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 131,
+                      "src": "721:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_Witness_$131_storage_ptr_$",
+                        "typeString": "type(struct SimpleTransfer.Witness storage pointer)"
+                      }
+                    },
+                    "id": 174,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "721:40:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Witness_$131_memory",
+                      "typeString": "struct SimpleTransfer.Witness memory"
+                    }
+                  },
+                  "functionReturnParameters": 162,
+                  "id": 175,
+                  "nodeType": "Return",
+                  "src": "714:47:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 177,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "bytesToWitness",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 159,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 158,
+                  "name": "_witness",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 177,
+                  "src": "573:21:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 157,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "573:5:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "563:37:2"
+            },
+            "returnParameters": {
+              "id": 162,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 161,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 177,
+                  "src": "624:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Witness_$131_memory_ptr",
+                    "typeString": "struct SimpleTransfer.Witness"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 160,
+                    "name": "Witness",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 131,
+                    "src": "624:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Witness_$131_storage_ptr",
+                      "typeString": "struct SimpleTransfer.Witness"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "623:16:2"
+            },
+            "scope": 223,
+            "src": "540:228:2",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 221,
+              "nodeType": "Block",
+              "src": "932:364:2",
+              "statements": [
+                {
+                  "assignments": [
+                    189
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 189,
+                      "name": "oldState",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 221,
+                      "src": "942:27:2",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_StateObject_$128_memory_ptr",
+                        "typeString": "struct SimpleTransfer.StateObject"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 188,
+                        "name": "StateObject",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 128,
+                        "src": "942:11:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_StateObject_$128_storage_ptr",
+                          "typeString": "struct SimpleTransfer.StateObject"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 193,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 191,
+                        "name": "_oldState",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 179,
+                        "src": "991:9:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 190,
+                      "name": "bytesToStateObject",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 156,
+                      "src": "972:18:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_pure$_t_bytes_memory_ptr_$returns$_t_struct$_StateObject_$128_memory_ptr_$",
+                        "typeString": "function (bytes memory) pure returns (struct SimpleTransfer.StateObject memory)"
+                      }
+                    },
+                    "id": 192,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "972:29:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_StateObject_$128_memory_ptr",
+                      "typeString": "struct SimpleTransfer.StateObject memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "942:59:2"
+                },
+                {
+                  "assignments": [
+                    195
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 195,
+                      "name": "witness",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 221,
+                      "src": "1011:22:2",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Witness_$131_memory_ptr",
+                        "typeString": "struct SimpleTransfer.Witness"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 194,
+                        "name": "Witness",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 131,
+                        "src": "1011:7:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Witness_$131_storage_ptr",
+                          "typeString": "struct SimpleTransfer.Witness"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 199,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 197,
+                        "name": "_witness",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 183,
+                        "src": "1051:8:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 196,
+                      "name": "bytesToWitness",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 177,
+                      "src": "1036:14:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_pure$_t_bytes_memory_ptr_$returns$_t_struct$_Witness_$131_memory_ptr_$",
+                        "typeString": "function (bytes memory) pure returns (struct SimpleTransfer.Witness memory)"
+                      }
+                    },
+                    "id": 198,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1036:24:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Witness_$131_memory_ptr",
+                      "typeString": "struct SimpleTransfer.Witness memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1011:49:2"
+                },
+                {
+                  "assignments": [
+                    201
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 201,
+                      "name": "txhash",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 221,
+                      "src": "1115:14:2",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      },
+                      "typeName": {
+                        "id": 200,
+                        "name": "bytes32",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1115:7:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 205,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 203,
+                        "name": "_newState",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 181,
+                        "src": "1142:9:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 202,
+                      "name": "keccak256",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 232,
+                      "src": "1132:9:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                        "typeString": "function (bytes memory) pure returns (bytes32)"
+                      }
+                    },
+                    "id": 204,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1132:20:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1115:37:2"
+                },
+                {
+                  "assignments": [
+                    207
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 207,
+                      "name": "validSignature",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 221,
+                      "src": "1162:19:2",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "typeName": {
+                        "id": 206,
+                        "name": "bool",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1162:4:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 218,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 216,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "id": 210,
+                              "name": "txhash",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 201,
+                              "src": "1204:6:2",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes32",
+                                "typeString": "bytes32"
+                              }
+                            },
+                            {
+                              "argumentTypes": null,
+                              "expression": {
+                                "argumentTypes": null,
+                                "id": 211,
+                                "name": "witness",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 195,
+                                "src": "1212:7:2",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_struct$_Witness_$131_memory_ptr",
+                                  "typeString": "struct SimpleTransfer.Witness memory"
+                                }
+                              },
+                              "id": 212,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "signature",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 130,
+                              "src": "1212:17:2",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes_memory",
+                                "typeString": "bytes memory"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_bytes32",
+                                "typeString": "bytes32"
+                              },
+                              {
+                                "typeIdentifier": "t_bytes_memory",
+                                "typeString": "bytes memory"
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 208,
+                              "name": "ECRecovery",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 62,
+                              "src": "1185:10:2",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_contract$_ECRecovery_$62_$",
+                                "typeString": "type(library ECRecovery)"
+                              }
+                            },
+                            "id": 209,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "recover",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 61,
+                            "src": "1185:18:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_internal_pure$_t_bytes32_$_t_bytes_memory_ptr_$returns$_t_address_$",
+                              "typeString": "function (bytes32,bytes memory) pure returns (address)"
+                            }
+                          },
+                          "id": 213,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "1185:45:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 214,
+                            "name": "oldState",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 189,
+                            "src": "1234:8:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_StateObject_$128_memory_ptr",
+                              "typeString": "struct SimpleTransfer.StateObject memory"
+                            }
+                          },
+                          "id": 215,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "owner",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 125,
+                          "src": "1234:14:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "1185:63:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "id": 217,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "1184:65:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1162:87:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 219,
+                    "name": "validSignature",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 207,
+                    "src": "1275:14:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 187,
+                  "id": 220,
+                  "nodeType": "Return",
+                  "src": "1268:21:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 222,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "validStateTransition",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 184,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 179,
+                  "name": "_oldState",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 222,
+                  "src": "813:22:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 178,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "813:5:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 181,
+                  "name": "_newState",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 222,
+                  "src": "845:22:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 180,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "845:5:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 183,
+                  "name": "_witness",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 222,
+                  "src": "877:21:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 182,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "877:5:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "803:101:2"
+            },
+            "returnParameters": {
+              "id": 187,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 186,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 222,
+                  "src": "926:4:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 185,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "926:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "925:6:2"
+            },
+            "scope": 223,
+            "src": "774:522:2",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 224,
+        "src": "87:1211:2"
+      }
+    ],
+    "src": "0:1299:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.2",
+  "updatedAt": "2019-02-16T18:25:30.693Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

@@ -1,0 +1,1264 @@
+{
+  "contractName": "IPredicate",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "name": "state",
+              "type": "bytes"
+            },
+            {
+              "name": "rangeStart",
+              "type": "uint256"
+            },
+            {
+              "name": "rangeEnd",
+              "type": "uint256"
+            },
+            {
+              "name": "exitHeight",
+              "type": "uint256"
+            },
+            {
+              "name": "exitTime",
+              "type": "uint256"
+            }
+          ],
+          "name": "_exit",
+          "type": "tuple"
+        },
+        {
+          "name": "_witness",
+          "type": "bytes"
+        }
+      ],
+      "name": "canCancel",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "name": "state",
+              "type": "bytes"
+            },
+            {
+              "name": "rangeStart",
+              "type": "uint256"
+            },
+            {
+              "name": "rangeEnd",
+              "type": "uint256"
+            },
+            {
+              "name": "exitHeight",
+              "type": "uint256"
+            },
+            {
+              "name": "exitTime",
+              "type": "uint256"
+            }
+          ],
+          "name": "_exit",
+          "type": "tuple"
+        },
+        {
+          "name": "_witness",
+          "type": "bytes"
+        }
+      ],
+      "name": "canStartExit",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "name": "state",
+              "type": "bytes"
+            },
+            {
+              "name": "rangeStart",
+              "type": "uint256"
+            },
+            {
+              "name": "rangeEnd",
+              "type": "uint256"
+            },
+            {
+              "name": "exitHeight",
+              "type": "uint256"
+            },
+            {
+              "name": "exitTime",
+              "type": "uint256"
+            }
+          ],
+          "name": "_exit",
+          "type": "tuple"
+        },
+        {
+          "name": "_witness",
+          "type": "bytes"
+        }
+      ],
+      "name": "finalizeExit",
+      "outputs": [],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.5.0;\npragma experimental ABIEncoderV2;\n\ncontract IPredicate {\n    /*\n     * Structs\n     */\n\n    struct StateObject {\n        bytes parameters;\n        address predicate;\n    }\n\n    struct Exit {\n        bytes state;\n        uint256 rangeStart;\n        uint256 rangeEnd;\n        uint256 exitHeight;\n        uint256 exitTime;\n    }\n\n\n    /*\n     * Public methods\n     */\n\n    function canCancel(\n        Exit memory _exit,\n        bytes memory _witness\n    ) public returns (bool);\n\n    function canStartExit(\n        Exit memory _exit,\n        bytes memory _witness\n    ) public returns (bool);\n\n    function finalizeExit(\n        Exit memory _exit,\n        bytes memory _witness\n    ) public payable;\n}\n",
+  "sourcePath": "/home/k/Projects/pg/plasma-wtf/contracts/IPredicate.sol",
+  "ast": {
+    "absolutePath": "/home/k/Projects/pg/plasma-wtf/contracts/IPredicate.sol",
+    "exportedSymbols": {
+      "IPredicate": [
+        107
+      ]
+    },
+    "id": 108,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 64,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:1"
+      },
+      {
+        "id": 65,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:1"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 107,
+        "linearizedBaseContracts": [
+          107
+        ],
+        "name": "IPredicate",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "IPredicate.StateObject",
+            "id": 70,
+            "members": [
+              {
+                "constant": false,
+                "id": 67,
+                "name": "parameters",
+                "nodeType": "VariableDeclaration",
+                "scope": 70,
+                "src": "145:16:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 66,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "145:5:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 69,
+                "name": "predicate",
+                "nodeType": "VariableDeclaration",
+                "scope": 70,
+                "src": "171:17:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 68,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "171:7:1",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "StateObject",
+            "nodeType": "StructDefinition",
+            "scope": 107,
+            "src": "116:79:1",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IPredicate.Exit",
+            "id": 81,
+            "members": [
+              {
+                "constant": false,
+                "id": 72,
+                "name": "state",
+                "nodeType": "VariableDeclaration",
+                "scope": 81,
+                "src": "223:11:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 71,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "223:5:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 74,
+                "name": "rangeStart",
+                "nodeType": "VariableDeclaration",
+                "scope": 81,
+                "src": "244:18:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 73,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "244:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 76,
+                "name": "rangeEnd",
+                "nodeType": "VariableDeclaration",
+                "scope": 81,
+                "src": "272:16:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 75,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "272:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 78,
+                "name": "exitHeight",
+                "nodeType": "VariableDeclaration",
+                "scope": 81,
+                "src": "298:18:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 77,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "298:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 80,
+                "name": "exitTime",
+                "nodeType": "VariableDeclaration",
+                "scope": 81,
+                "src": "326:16:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 79,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "326:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Exit",
+            "nodeType": "StructDefinition",
+            "scope": 107,
+            "src": "201:148:1",
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 90,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "canCancel",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 86,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 83,
+                  "name": "_exit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 90,
+                  "src": "422:17:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Exit_$81_memory_ptr",
+                    "typeString": "struct IPredicate.Exit"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 82,
+                    "name": "Exit",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 81,
+                    "src": "422:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Exit_$81_storage_ptr",
+                      "typeString": "struct IPredicate.Exit"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 85,
+                  "name": "_witness",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 90,
+                  "src": "449:21:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 84,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "449:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "412:64:1"
+            },
+            "returnParameters": {
+              "id": 89,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 88,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 90,
+                  "src": "493:4:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 87,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "493:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "492:6:1"
+            },
+            "scope": 107,
+            "src": "394:105:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 99,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "canStartExit",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 95,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 92,
+                  "name": "_exit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 99,
+                  "src": "536:17:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Exit_$81_memory_ptr",
+                    "typeString": "struct IPredicate.Exit"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 91,
+                    "name": "Exit",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 81,
+                    "src": "536:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Exit_$81_storage_ptr",
+                      "typeString": "struct IPredicate.Exit"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 94,
+                  "name": "_witness",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 99,
+                  "src": "563:21:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 93,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "563:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "526:64:1"
+            },
+            "returnParameters": {
+              "id": 98,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 97,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 99,
+                  "src": "607:4:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 96,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "607:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "606:6:1"
+            },
+            "scope": 107,
+            "src": "505:108:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 106,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "finalizeExit",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 104,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 101,
+                  "name": "_exit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 106,
+                  "src": "650:17:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Exit_$81_memory_ptr",
+                    "typeString": "struct IPredicate.Exit"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 100,
+                    "name": "Exit",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 81,
+                    "src": "650:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Exit_$81_storage_ptr",
+                      "typeString": "struct IPredicate.Exit"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 103,
+                  "name": "_witness",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 106,
+                  "src": "677:21:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 102,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "677:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "640:64:1"
+            },
+            "returnParameters": {
+              "id": 105,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "719:0:1"
+            },
+            "scope": 107,
+            "src": "619:101:1",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 108,
+        "src": "59:663:1"
+      }
+    ],
+    "src": "0:723:1"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/k/Projects/pg/plasma-wtf/contracts/IPredicate.sol",
+    "exportedSymbols": {
+      "IPredicate": [
+        107
+      ]
+    },
+    "id": 108,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 64,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:1"
+      },
+      {
+        "id": 65,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:1"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 107,
+        "linearizedBaseContracts": [
+          107
+        ],
+        "name": "IPredicate",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "IPredicate.StateObject",
+            "id": 70,
+            "members": [
+              {
+                "constant": false,
+                "id": 67,
+                "name": "parameters",
+                "nodeType": "VariableDeclaration",
+                "scope": 70,
+                "src": "145:16:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 66,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "145:5:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 69,
+                "name": "predicate",
+                "nodeType": "VariableDeclaration",
+                "scope": 70,
+                "src": "171:17:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 68,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "171:7:1",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "StateObject",
+            "nodeType": "StructDefinition",
+            "scope": 107,
+            "src": "116:79:1",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IPredicate.Exit",
+            "id": 81,
+            "members": [
+              {
+                "constant": false,
+                "id": 72,
+                "name": "state",
+                "nodeType": "VariableDeclaration",
+                "scope": 81,
+                "src": "223:11:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 71,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "223:5:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 74,
+                "name": "rangeStart",
+                "nodeType": "VariableDeclaration",
+                "scope": 81,
+                "src": "244:18:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 73,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "244:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 76,
+                "name": "rangeEnd",
+                "nodeType": "VariableDeclaration",
+                "scope": 81,
+                "src": "272:16:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 75,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "272:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 78,
+                "name": "exitHeight",
+                "nodeType": "VariableDeclaration",
+                "scope": 81,
+                "src": "298:18:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 77,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "298:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 80,
+                "name": "exitTime",
+                "nodeType": "VariableDeclaration",
+                "scope": 81,
+                "src": "326:16:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 79,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "326:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Exit",
+            "nodeType": "StructDefinition",
+            "scope": 107,
+            "src": "201:148:1",
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 90,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "canCancel",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 86,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 83,
+                  "name": "_exit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 90,
+                  "src": "422:17:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Exit_$81_memory_ptr",
+                    "typeString": "struct IPredicate.Exit"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 82,
+                    "name": "Exit",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 81,
+                    "src": "422:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Exit_$81_storage_ptr",
+                      "typeString": "struct IPredicate.Exit"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 85,
+                  "name": "_witness",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 90,
+                  "src": "449:21:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 84,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "449:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "412:64:1"
+            },
+            "returnParameters": {
+              "id": 89,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 88,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 90,
+                  "src": "493:4:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 87,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "493:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "492:6:1"
+            },
+            "scope": 107,
+            "src": "394:105:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 99,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "canStartExit",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 95,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 92,
+                  "name": "_exit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 99,
+                  "src": "536:17:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Exit_$81_memory_ptr",
+                    "typeString": "struct IPredicate.Exit"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 91,
+                    "name": "Exit",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 81,
+                    "src": "536:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Exit_$81_storage_ptr",
+                      "typeString": "struct IPredicate.Exit"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 94,
+                  "name": "_witness",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 99,
+                  "src": "563:21:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 93,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "563:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "526:64:1"
+            },
+            "returnParameters": {
+              "id": 98,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 97,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 99,
+                  "src": "607:4:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 96,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "607:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "606:6:1"
+            },
+            "scope": 107,
+            "src": "505:108:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 106,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "finalizeExit",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 104,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 101,
+                  "name": "_exit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 106,
+                  "src": "650:17:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Exit_$81_memory_ptr",
+                    "typeString": "struct IPredicate.Exit"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 100,
+                    "name": "Exit",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 81,
+                    "src": "650:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Exit_$81_storage_ptr",
+                      "typeString": "struct IPredicate.Exit"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 103,
+                  "name": "_witness",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 106,
+                  "src": "677:21:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 102,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "677:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "640:64:1"
+            },
+            "returnParameters": {
+              "id": 105,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "719:0:1"
+            },
+            "scope": 107,
+            "src": "619:101:1",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 108,
+        "src": "59:663:1"
+      }
+    ],
+    "src": "0:723:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.2",
+  "updatedAt": "2019-02-16T21:53:19.705Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
