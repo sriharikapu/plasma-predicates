@@ -4,19 +4,20 @@ pragma experimental ABIEncoderV2;
 import './IPredicate.sol';
 import './BasicChecks.sol';
 
-contract SimpleRangeTransfer is IPredicate {
+contract SimpleMultiSig is IPredicate {
     /*
      * Structs
      */
 
     struct StateData {
-        address owner;
+        address[] owners;
+        uint256 threshold;
     }
 
     struct Witness {
         uint256 rangeStart;
         uint256 rangeEnd;
-        bytes signature;
+        bytes[] signatures;
     }
 
 
@@ -32,13 +33,20 @@ contract SimpleRangeTransfer is IPredicate {
         StateData memory state = bytesToStateData(_exit.state);
 
         // Check transaction signature.
-        bool validSignature = BasicChecks.checkSignature(
-            witness.rangeStart,
-            witness.rangeEnd,
-            _exit.exitHeight,
-            witness.signature,
-            state.owner
-        );
+        uint256 signatures = 0;
+        for (uint256 i = 0; i < state.owners.length; i++) {
+            bool validSignature = BasicChecks.checkSignature(
+                witness.rangeStart,
+                witness.rangeEnd,
+                _exit.exitHeight,
+                witness.signatures[i],
+                state.owners[i]
+            );
+            if (validSignature) {
+                signatures++;
+            }
+        }
+        bool validSignatures = (signatures >= state.threshold);
 
         // Check transaction bounds.
         bool validBounds = BasicChecks.checkBounds(
@@ -50,7 +58,7 @@ contract SimpleRangeTransfer is IPredicate {
 
         // TODO: Check inclusion.
 
-        return validSignature && validBounds;
+        return validSignatures && validBounds;
     }
 
     function canStartExit(
@@ -60,7 +68,12 @@ contract SimpleRangeTransfer is IPredicate {
         StateData memory state = bytesToStateData(_exit.state);
 
         // Check valid transaction sender.
-        bool validSender = (tx.origin == state.owner);
+        bool validSender = false;
+        for (uint256 i = 0; i < state.owners.length; i++) {
+            if (tx.origin == state.owners[i]) {
+                validSender = true;
+            }
+        }
 
         return validSender;
     }
@@ -71,9 +84,7 @@ contract SimpleRangeTransfer is IPredicate {
     ) public payable {
         StateData memory state = bytesToStateData(_exit.state);
         
-        // Forward all money to the owner.
-        address payable owner = address(uint160(state.owner));
-        owner.transfer(msg.value);
+        // TODO: Convert into a multisig on the main chain.
     }
 
 
@@ -84,11 +95,11 @@ contract SimpleRangeTransfer is IPredicate {
     function bytesToWitness(
         bytes memory _witness
     ) internal pure returns (Witness memory) {
-        (uint256 rangeStart, uint256 rangeEnd, bytes memory signature) = abi.decode(_witness, (uint256, uint256, bytes));
+        (uint256 rangeStart, uint256 rangeEnd, bytes[] memory signatures) = abi.decode(_witness, (uint256, uint256, bytes[]));
         return Witness(
             rangeStart,
             rangeEnd,
-            signature
+            signatures
         );
     }
 
@@ -96,9 +107,10 @@ contract SimpleRangeTransfer is IPredicate {
         bytes memory _state
     ) internal pure returns (StateData memory) {
         (bytes memory parameters, ) = abi.decode(_state, (bytes, address));
-        address owner = abi.decode(parameters, (address));
+        (address[] memory owners, uint256 threshold) = abi.decode(parameters, (address[], uint256));
         return StateData(
-            owner
+            owners,
+            threshold
         );
     }
 }
