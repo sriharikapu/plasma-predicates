@@ -24,16 +24,7 @@ contract IPredicate {
      * Public methods
      */
 
-    function canCancel(
-        Exit memory _exit,
-        bytes memory _witness
-    ) public view returns (bool);
-
-    function canStartExit(
-        Exit memory _exit
-    ) public view returns (bool);
-
-    function finalizeExit(
-        Exit memory _exit
-    ) public payable;
+    function canCancel(Exit memory _exit, bytes memory _witness) public view returns (bool);
+    function canStartExit(Exit memory _exit) public view returns (bool);
+    function finalizeExit(Exit memory _exit) public payable;
 }
