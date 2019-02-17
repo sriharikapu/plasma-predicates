@@ -11,6 +11,8 @@ const assert = chai.assert
 
 const BigNum = require('bn.js')
 
+const EthCrypto = require('eth-crypto');
+
 const plasmaUtils = require('plasma-utils')
 const PlasmaMerkleSumTree = plasmaUtils.PlasmaMerkleSumTree
 const models = plasmaUtils.serialization.models
@@ -26,6 +28,7 @@ const getCurrentChainSnapshot = setup.getCurrentChainSnapshot
 const web3 = setup.web3
 const CHALLENGE_PERIOD = 20
 
+let rangePredicate
 describe('Plasma Smart Contract', () => {
   let bytecode, abi, plasma, operatorSetup, freshContractSnapshot, serializer
   const dummyBlockHash = '0x0000000000000000000000000000000000000000000000000000000000000000'
@@ -33,7 +36,7 @@ describe('Plasma Smart Contract', () => {
   before(async () => {
     // setup ganache, deploy, etc.
     [
-      bytecode, abi, plasma, operatorSetup, freshContractSnapshot, serializer
+      bytecode, abi, plasma, operatorSetup, freshContractSnapshot, serializer, rangePredicate
     ] = await setup.setupPlasma()
   })
   describe('Deployment', () => {
@@ -279,14 +282,19 @@ describe('Plasma Smart Contract', () => {
       assert.equal(depositStart, '50')
       assert.equal(depositer, web3.eth.accounts.wallet[2].address)
     })
-    it('should allow that users `beginExit`s', async () => {
+    it.only('should allow that users `beginExit`s', async () => {
       const plasmaBlock = '0'
       const exitStart = '0'
       const exitEnd = '10'
-      await plasma.methods.beginExit(0, plasmaBlock, exitStart, exitEnd).send({ value: 0, from: web3.eth.accounts.wallet[1].address, gas: 4000000 })
+
+      const alice = web3.eth.accounts.wallet[0].address
+      const parameters = web3.eth.abi.encodeParameters(['address'], [alice])
+      const rangeTransferStateObject = web3.eth.abi.encodeParameters(['bytes', 'address'], [parameters, rangePredicate._address])
+
+      await plasma.methods.beginExit(0, plasmaBlock, exitStart, exitEnd, rangeTransferStateObject).send({ value: 0, from: alice, gas: 4000000 })
       const exitID = 0 // hardcode since this is all a deterministic test
       const exiter = await plasma.methods.exits__exiter(exitID).call()
-      assert.equal(exiter, web3.eth.accounts.wallet[1].address)
+      assert.equal(exiter, alice)
     })
     it('should properly finalize leftmost, rightmost, and middle exits', async () => {
       // this test finalizes exits in order of left, right, middle.
@@ -452,22 +460,33 @@ describe('Plasma Smart Contract', () => {
       const isOngoing = await plasma.methods.inclusionChallenges__ongoing(chalID).call()
       assert.equal(isOngoing, false)
     })
-    it('should allow Spent Coin Challenges to cancel exits', async () => {
-      // have Bob exit even though he sent to Carol
-      await plasma.methods.beginExit(0, 3, start, end).send({ value: 0, from: carol, gas: 4000000 })
+    it.only('should allow Spent Coin Challenges to cancel exits', async () => {
+      const plasmaBlock = '0'
+      const exitStart = '0'
+      const exitEnd = '10'
+
+      const alice = web3.eth.accounts.wallet[0].address
+      const parameters = web3.eth.abi.encodeParameters(['address'], [alice])
+      const rangeTransferStateObject = web3.eth.abi.encodeParameters(['bytes', 'address'], [parameters, rangePredicate._address])
+
+      await plasma.methods.beginExit(0, plasmaBlock, exitStart, exitEnd, rangeTransferStateObject).send({ value: 0, from: alice, gas: 4000000 })
+
+      debugger
+
       const exitID = exitNonce
       exitNonce++
 
-      const coinID = 0 // could be anything from 0 to 100
-      const transferIndex = 0 // only one transfer in these
-      const chalTX = txC
-      const unsigned = new UnsignedTransaction(chalTX)
+      const message = web3.eth.abi.encodeParameters(['uint256', 'uint256', 'uint256'], [exitStart, exitEnd, plasmaBlock])
+      const messageHash = web3.utils.sha3(message)
+      const sig = EthCrypto.sign(web3.eth.accounts.wallet[0].privateKey, messageHash)
+
+      const witness = web3.eth.abi.encodeParameters(['uint256', 'uint256', 'bytes'], [exitStart, exitEnd, sig])
+
+      debugger
+
       await plasma.methods.challengeSpentCoin(
         exitID,
-        coinID,
-        transferIndex,
-        '0x' + unsigned.encoded,
-        '0x' + blocks['C'].getTransactionProof(chalTX).encoded
+        witness
       ).send()
 
       const deletedExiter = await plasma.methods.exits__exiter(exitID).call()
@@ -598,3 +617,14 @@ describe('Plasma Smart Contract', () => {
     })
   })
 })
+
+const getExit = (account, start, end) => {
+  const parameters = web3.eth.abi.encodeParameters(['address'], [account.address])
+  return {
+    state: web3.eth.abi.encodeParameters(['bytes', 'address'], [parameters, web3.eth.accounts.wallet[0].address]),
+    rangeStart: start,
+    rangeEnd: end,
+    exitHeight: 0,
+    exitTime: 999
+  }
+}

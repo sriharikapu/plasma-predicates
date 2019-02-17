@@ -1,8 +1,8 @@
 pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
-import "../IPredicate.sol";
-import "../../libraries/BasicChecks.sol";
+import '../IPredicate.sol';
+import '../BasicChecks.sol';
 
 contract SimpleRangeTransferPredicate is IPredicate {
     /*
@@ -53,43 +53,9 @@ contract SimpleRangeTransferPredicate is IPredicate {
         return validSignature && validBounds;
     }
 
-
-
-    function canCancel1(
-        bytes memory _state,
-        uint256 rangeStart,
-        uint256 rangeEnd,
-        uint256 exitHeight,
-        uint256 exitTime,
-        bytes memory _witness
-    ) public view returns (bool) {
-        Witness memory witness = bytesToWitness(_witness);
-        StateData memory state = bytesToStateData(_state);
-
-        // Check transaction signature.
-        bool validSignature = BasicChecks.checkSignature(
-            rangeStart,
-            rangeEnd,
-            exitHeight,
-            witness.signature,
-            state.owner
-        );
-
-        // Check transaction bounds.
-        bool validBounds = BasicChecks.checkBounds(
-            rangeStart,
-            rangeEnd,
-            witness.rangeStart,
-            witness.rangeEnd
-        );
-
-        // TODO: Check inclusion.
-
-        return validSignature && validBounds;
-    }
-
     function canStartExit(
-        Exit memory _exit
+        Exit memory _exit,
+        bytes memory _witness
     ) public view returns (bool) {
         StateData memory state = bytesToStateData(_exit.state);
 
@@ -99,23 +65,9 @@ contract SimpleRangeTransferPredicate is IPredicate {
         return validSender;
     }
 
-    function canStartExit1(
-        bytes memory _state,
-        uint256 rangeStart,
-        uint256 rangeEnd,
-        uint256 exitHeight,
-        uint256 exitTime
-    ) public view returns (bool) {
-        StateData memory state = bytesToStateData(_state);
-
-        // Check valid transaction sender.
-        bool validSender = (tx.origin == state.owner);
-
-        return validSender;
-    }
-
     function finalizeExit(
-        Exit memory _exit
+        Exit memory _exit,
+        bytes memory _witness
     ) public payable {
         StateData memory state = bytesToStateData(_exit.state);
         

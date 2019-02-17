@@ -1,6 +1,7 @@
 const ganache = require('ganache-cli')
 const Web3 = require('web3')
 const BigNum = require('bn.js')
+const fs = require('fs')
 
 const Transaction = require('plasma-utils').serialization.models.Transaction
 
@@ -21,7 +22,7 @@ for (let i = 0; i < 5; i++) {
   web3.eth.accounts.wallet.add(privateKey)
 }
 // For all provider options, see: https://github.com/trufflesuite/ganache-cli#library
-const providerOptions = { 'accounts': ganacheAccounts, 'locked': false, 'gasLimit': '0x996acfc0' } // , 'logger': console }//, 'debug': true }
+const providerOptions = { 'accounts': ganacheAccounts, 'locked': false, 'gasLimit': '0xa0b6acfc0' } // , 'logger': console }//, 'debug': true }
 web3.setProvider(ganache.provider(providerOptions))
 
 async function mineBlock () {
@@ -111,6 +112,22 @@ async function setupPlasma () {
 
   await require('../compile-contracts').compileContracts()
 
+  const helperContract = require('../compiled-contracts/abi-serialize.js')
+  const helperBytecode = helperContract.bytecode
+  const helperAbi = helperContract.abi
+
+  const helperCt = new web3.eth.Contract(helperAbi, addr, { from: addr, gas: 7000000, gasPrice: '3000' })
+  const helper = await helperCt.deploy({ data: helperBytecode }).send()
+
+
+
+  let rangePredicateBytecode, rangePredicateAbi
+  let rangePredicateBuild = JSON.parse(fs.readFileSync('../build/contracts/SimpleRangeTransferPredicate.json'))
+  rangePredicateAbi = rangePredicateBuild.abi
+  rangePredicateBytecode = rangePredicateBuild.bytecode
+
+  const rangePredicateCt = new web3.eth.Contract(rangePredicateAbi, addr, { from: addr, gas: 7000000, gasPrice: '3000' })
+  const rangePredicate = await rangePredicateCt.deploy({ data: rangePredicateBytecode }).send()
 
   const serializationContract = require('../compiled-contracts/serialization.js')
   const serBytecode = serializationContract.bytecode
@@ -119,16 +136,11 @@ async function setupPlasma () {
   const serCt = new web3.eth.Contract(serAbi, addr, { from: addr, gas: 7000000, gasPrice: '3000' })
   const ser = await serCt.deploy({ data: serBytecode }).send()
 
-  debugger
-
   const contract = require('../compiled-contracts/plasma-chain.js')
   bytecode = contract.bytecode
   abi = contract.abi
 
-
   const plasmaCt = new web3.eth.Contract(abi, addr, { from: addr, gas: 7000000, gasPrice: '3000' })
-  
-  const solidityHelperAddress = '0x1000000000000000000000000000000000000000'
 
   await mineBlock()
   // Now try to deploy
@@ -141,10 +153,10 @@ async function setupPlasma () {
   // const block = await web3.eth.getBlock('latest')
   // const deploymentTransaction = await web3.eth.getTransaction(block.transactions[0]) // eslint-disable-line no-unused-vars
   const weiDecimalOffset = 0 // so it'll be wei
-  debugger
-  operatorSetup = await plasma.methods.setup(web3.eth.accounts.wallet[0].address, weiDecimalOffset, ser._address, solidityHelperAddress).send()
+
+  operatorSetup = await plasma.methods.setup(web3.eth.accounts.wallet[0].address, weiDecimalOffset, ser._address, helper._address).send()
   freshContractSnapshot = await getCurrentChainSnapshot()
-  return [bytecode, abi, plasma, operatorSetup, freshContractSnapshot, ser]
+  return [bytecode, abi, plasma, operatorSetup, freshContractSnapshot, ser, rangePredicate]
 }
 
 let tokenBytecode, tokenAbi, token

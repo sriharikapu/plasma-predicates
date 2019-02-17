@@ -16,7 +16,7 @@ struct Exit:
     untypedEnd: uint256
     challengeCount: uint256 #predicate stuff below
     predicateAddress: address
-    exitEncoding: bytes[1000]
+    stateObject: bytes[1000]
 
 struct inclusionChallenge:
     exitID: uint256
@@ -37,8 +37,8 @@ struct tokenListing:
     contractAddress: address
 
 contract PredicateContract:
-    def canStartExit(_exitEncoding: bytes[1000], _witness: bytes[1000]) -> bool: constant
-    def canCancel(_exitEncoding: bytes[1000], _witness: bytes[1000]) -> bool: constant
+    def canStartExit1(_stateObject: bytes[1000], _start: uint256, _end: uint256, _height: uint256, _ethHeight: uint256) -> bool: constant
+    def canCancel1(_stateObject: bytes[1000], _start: uint256, _end: uint256, _height: uint256, _ethHeight: uint256, _witness: bytes[1000]) -> bool: constant
     def doExitFinalization(_exitEncoding: bytes[1000]): modifying
 
 contract SolidityABIHelper:
@@ -354,21 +354,22 @@ def depositERC20(tokenAddress: address, depositSize: uint256):
     self.processDeposit(depositer, depositInPlasmaCoins, tokenType)
 
 @public
-def beginExit(tokenType: uint256, blockNumber: uint256, untypedStart: uint256, untypedEnd: uint256, stateObject: bytes[1000], witness: bytes[1000]) -> uint256:
+def beginExit(tokenType: uint256, blockNumber: uint256, untypedStart: uint256, untypedEnd: uint256, stateObject: bytes[1000]) -> uint256:
     assert blockNumber < self.nextPlasmaBlockNumber
 
     # predicate stuff
     encodedExit: bytes[1000] = SolidityABIHelper(self.solidityHelperAddr).encodeExit(stateObject, untypedStart, untypedEnd, blockNumber, block.number) # todo type if doing ERC20
     exitPredicate: address = SolidityABIHelper(self.solidityHelperAddr).decodePredicateFromState(stateObject)
 
-    assert PredicateContract(exitPredicate).canStartExit(encodedExit, witness)
+    canExit: bool = PredicateContract(exitPredicate).canStartExit1(stateObject, untypedStart, untypedEnd, blockNumber, block.number)
+    assert canExit
 
     exiter: address = msg.sender
     exitID: uint256 = self.exitNonce
 
     # predicate stores
     self.exits[exitID].predicateAddress = exitPredicate
-    self.exits[exitID].exitEncoding = encodedExit
+    self.exits[exitID].stateObject = stateObject
 
     self.exits[exitID].exiter = exiter
     self.exits[exitID].plasmaBlockNumber = blockNumber
@@ -427,7 +428,7 @@ def finalizeExit(exitID: uint256, exitableEnd: uint256):
     self.removeFromExitable(tokenType, exitUntypedStart, exitUntypedEnd, exitableEnd)
 
     pred: address = self.exits[exitID].predicateAddress
-    exitEnc: bytes[1000] = self.exits[exitID].exitEncoding
+    exitEnc: bytes[1000] = self.exits[exitID].stateObject
 
     if tokenType == 0: # then we're exiting ETH
         weiMiltiplier: uint256 = 10**self.weiDecimalOffset
@@ -479,9 +480,9 @@ def challengeSpentCoin(
     exitTypedEnd: uint256 = Serializer(self.serializer).getTypedFromTokenAndUntyped(exitTokenType, self.exits[exitID].untypedEnd)
 
     pred: address = self.exits[exitID].predicateAddress
-    exitEnc: bytes[1000] = self.exits[exitID].exitEncoding
+    stateObject: bytes[1000] = self.exits[exitID].stateObject
     
-    cancelled: bool = PredicateContract(pred).canCancel(exitEnc, witness)
+    cancelled: bool = PredicateContract(pred).canCancel1(stateObject, exitTypedStart, exitTypedEnd, exitPlasmaBlockNumber, block.number, witness)
     assert cancelled
 
     # if all these passed, the coin was indeed spent.  CANCEL!
@@ -494,8 +495,7 @@ def challengeInvalidHistory(
     typedStart: uint256,
     typedEnd: uint256,
     blockNumber: uint256,
-    stateObject: bytes[1000],
-    witness: bytes[1000]
+    stateObject: bytes[1000]
 ):
     # check we can still challenge
     exitethBlockNumberNumber: uint256 = self.exits[exitID].ethBlockNumber
@@ -523,7 +523,7 @@ def challengeInvalidHistory(
     encodedExit: bytes[1000] = SolidityABIHelper(self.solidityHelperAddr).encodeExit(stateObject, typedStart, typedEnd, blockNumber, block.number) # todo type if doing ERC20
     exitPredicate: address = SolidityABIHelper(self.solidityHelperAddr).decodePredicateFromState(stateObject)
 
-    assert PredicateContract(exitPredicate).canStartExit(encodedExit, witness)
+    assert PredicateContract(exitPredicate).canStartExit1(stateObject, exitTypedStart, exitTypedEnd, blockNumber, block.number)
 
     # get and increment challengeID
     challengeID: uint256 = self.challengeNonce
@@ -558,11 +558,14 @@ def respondInvalidHistory(
 
     # todo block checking figure out
 
+    exitUntypedStart: uint256  = self.exits[exitID].untypedStart
+    exitUntypedEnd: uint256 = self.exits[exitID].untypedEnd
+
     # predicate stuff
     pred: address = self.exits[exitID].predicateAddress
-    exitEnc: bytes[1000] = self.exits[exitID].exitEncoding
+    stateObject: bytes[1000] = self.exits[exitID].stateObject
     
-    cancelled: bool = PredicateContract(pred).canCancel(exitEnc, witness)
+    cancelled: bool = PredicateContract(pred).canCancel1(stateObject, exitUntypedStart, exitUntypedEnd, exitPlasmaBlockNumber, block.number, witness)
     assert cancelled
 
     # response was successful

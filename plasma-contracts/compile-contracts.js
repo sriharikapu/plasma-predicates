@@ -4,6 +4,8 @@ const compilePlasmaChainContract = compilation.compilePlasmaChainContract
 const compileSerializationContract = compilation.compileSerializationContract
 const compilePlasmaRegistryContract = compilation.compilePlasmaRegistryContract
 const compileTokenContract = compilation.compileTokenContract
+const compileAbiSerializeContract = compilation.compileAbiSerializeContract
+const compileRangeTransferPredicate = compilation.compileRangeTransferPredicate
 
 async function compileContracts () {
   let plasmaChainBytecode, plasmaChainAbi
@@ -18,6 +20,9 @@ async function compileContracts () {
   let tokenBytecode, tokenAbi
   [tokenBytecode, tokenAbi] = await compileTokenContract()
 
+  let abiSerializeBytecode, abiSerializeAbi
+  [abiSerializeBytecode, abiSerializeAbi] = await compileAbiSerializeContract()
+
   // Create JS file for easy imports of the Plasma chain binary & abi
   const plasmaChainJS = `
 module.exports = {
@@ -25,7 +30,7 @@ module.exports = {
   abi: JSON.parse('${plasmaChainAbi}')
 }
 `
-const serializationJS = `
+  const serializationJS = `
 module.exports = {
   bytecode: '${serializationBytecode}',
   abi: JSON.parse('${serializationAbi}')
@@ -43,12 +48,19 @@ module.exports = {
   abi: JSON.parse('${tokenAbi}')
 }
 `
+const abiSeralizeJS = `
+module.exports = {
+  bytecode: '${abiSerializeBytecode}',
+  abi: JSON.parse('${abiSerializeAbi}')
+}
+`
 
   console.log('Compiled contracts! Saving them to ./compiled-contracts')
   await fs.writeFileSync('compiled-contracts/plasma-chain.js', plasmaChainJS)
   await fs.writeFileSync('compiled-contracts/serialization.js', serializationJS)
   await fs.writeFileSync('compiled-contracts/plasma-registry.js', plasmaRegistryJS)
   await fs.writeFileSync('compiled-contracts/test-token.js', tokenJS)
+  await fs.writeFileSync('compiled-contracts/abi-serialize.js', abiSeralizeJS)
 }
 
 module.exports = {
