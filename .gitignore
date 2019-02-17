@@ -1,2 +1,6 @@
 # Build Artifacts
 build/
+
+# Development
+node_modules/
+

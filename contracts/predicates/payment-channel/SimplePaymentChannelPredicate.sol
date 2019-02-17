@@ -28,7 +28,7 @@ contract SimplePaymentChannelPredicate is IPredicate {
     function canCancel(
         Exit memory _exit,
         bytes memory _witness
-    ) public returns (bool) {
+    ) public view returns (bool) {
         Witness memory witness = bytesToWitness(_witness);
         StateData memory state = bytesToStateData(_exit.state);
 
@@ -58,7 +58,7 @@ contract SimplePaymentChannelPredicate is IPredicate {
     function canStartExit(
         Exit memory _exit,
         bytes memory _witness
-    ) public returns (bool) {
+    ) public view returns (bool) {
         StateData memory state = bytesToStateData(_exit.state);
 
         // Check valid transaction sender.

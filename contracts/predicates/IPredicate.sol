@@ -27,12 +27,12 @@ contract IPredicate {
     function canCancel(
         Exit memory _exit,
         bytes memory _witness
-    ) public returns (bool);
+    ) public view returns (bool);
 
     function canStartExit(
         Exit memory _exit,
         bytes memory _witness
-    ) public returns (bool);
+    ) public view returns (bool);
 
     function finalizeExit(
         Exit memory _exit,
