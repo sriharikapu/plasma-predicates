@@ -57,8 +57,7 @@ contract SimpleMultiSigPredicate is IPredicate {
     }
 
     function canStartExit(
-        Exit memory _exit,
-        bytes memory _witness
+        Exit memory _exit
     ) public view returns (bool) {
         StateData memory state = bytesToStateData(_exit.state);
 
