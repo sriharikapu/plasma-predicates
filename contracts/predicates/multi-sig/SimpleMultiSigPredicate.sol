@@ -1,9 +1,9 @@
 pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
-import '../IPredicate.sol';
-import '../../libraries/BasicChecks.sol';
-import './MultiSig.sol';
+import "../IPredicate.sol";
+import "../../libraries/BasicChecks.sol";
+import "./MultiSig.sol";
 
 contract SimpleMultiSigPredicate is IPredicate {
     /*
@@ -69,8 +69,7 @@ contract SimpleMultiSigPredicate is IPredicate {
     }
 
     function finalizeExit(
-        Exit memory _exit,
-        bytes memory _witness
+        Exit memory _exit
     ) public payable {
         StateData memory state = bytesToStateData(_exit.state);
 

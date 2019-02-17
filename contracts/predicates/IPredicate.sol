@@ -35,7 +35,6 @@ contract IPredicate {
     ) public view returns (bool);
 
     function finalizeExit(
-        Exit memory _exit,
-        bytes memory _witness
+        Exit memory _exit
     ) public payable;
 }

@@ -1,8 +1,8 @@
 pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
-import './ECRecovery.sol';
-import './Math.sol';
+import "./ECRecovery.sol";
+import "./Math.sol";
 
 library BasicChecks {
     function checkSignature(
