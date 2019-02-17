@@ -1,6 +1,8 @@
 pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
+import "./StackLib.sol";
+
 library BitcoinLib {
     struct Chunk {
         bytes buf;
@@ -10,9 +12,9 @@ library BitcoinLib {
 
     struct Script {
         uint256 chunkSize;
-        uint256 stackSize;
         Chunk[100] chunks;
-        bytes[100] stack;
+        StackLib.Stack stack;
+        StackLib.Stack execStack;
     }
 
     struct Transaction {
@@ -22,24 +24,5 @@ library BitcoinLib {
     function pushChunk(Script memory _script, Chunk memory _chunk) internal pure {
         _script.chunks[_script.chunkSize] = _chunk;
         _script.chunkSize++;
-    }
-
-    function pushStackItem(Script memory _script, bytes memory _item) internal pure {
-        _script.stack[_script.stackSize] = _item;
-        _script.stackSize++;
-    }
-
-    function pickStack(Script memory _script, uint256 _index) internal pure returns (bytes memory) {
-        return _script.stack[_script.stackSize - _index - 1];
-    }
-
-    function peekStack(Script memory _script) internal pure returns (bytes memory) {
-        return pickStack(_script, 0);
-    }
-
-    function popStack(Script memory _script) internal pure returns (bytes memory) {
-        bytes memory result = peekStack(_script);
-        _script.stackSize--;
-        return result;
     }
 }

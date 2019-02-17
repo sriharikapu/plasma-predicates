@@ -2,14 +2,17 @@ pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
 import "./BitcoinLib.sol";
+import "./StackLib.sol";
 import "./BufferReader.sol";
 import "../../libraries/ByteUtils.sol";
 
 contract BitcoinScript {
     using BufferReader for BufferReader.Reader;
+    using BitcoinLib for BitcoinLib.Script;
+    using StackLib for StackLib.Stack;
     using ByteUtils for uint8;
     using ByteUtils for bytes;
-    using BitcoinLib for BitcoinLib.Script;
+    using ByteUtils for bool;
 
     /*
      * Opcodes
@@ -177,7 +180,7 @@ contract BitcoinScript {
 
         bytes memory buf;
         if (opcodenum > 0 && opcodenum <= OP_PUSHDATA4) {
-            _script.pushStackItem(chunk.buf);
+            _script.stack.push(chunk.buf);
         } else if (OP_IF <= opcodenum && opcodenum <= OP_ENDIF) {
             if (
                 opcodenum == OP_1NEGATE ||
@@ -199,15 +202,15 @@ contract BitcoinScript {
                 opcodenum == OP_16
             ) {
                 buf = (opcodenum - (OP_1 - 1)).toBytes();
-                _script.pushStackItem(buf);
+                _script.stack.push(buf);
             } else if (
                 opcodenum == OP_NOP2 ||
                 opcodenum == OP_CHECKLOCKTIMEVERIFY
             ) {
-                if (_script.stackSize < 1) {
+                if (_script.stack.size < 1) {
                     return (false, "SCRIPT_ERR_INVALID_STACK_OPERATION");
                 }
-                uint256 nLockTime = _script.peekStack().toUint256();
+                uint256 nLockTime = _script.stack.peek().toUint256();
                 if (nLockTime > _transaction.nLockTime) {
                     return (false, "SCRIPT_ERR_UNSATISFIED_LOCKTIME");
                 }
@@ -215,18 +218,18 @@ contract BitcoinScript {
                 opcodenum == OP_EQUAL ||
                 opcodenum == OP_EQUALVERIFY
             ) {
-                if (_script.stackSize < 2) {
+                if (_script.stack.size < 2) {
                     return (false, "SCRIPT_ERR_INVALID_STACK_OPERATION");
                 }
-                bytes memory buf1 = _script.pickStack(1);
-                bytes memory buf2 = _script.pickStack(0);
+                bytes memory buf1 = _script.stack.pick(1);
+                bytes memory buf2 = _script.stack.pick(0);
                 bool isEqual = buf1.equal(buf2);
-                _script.popStack();
-                _script.popStack();
-                _script.pushStackItem(abi.encodePacked(isEqual));
+                _script.stack.pop();
+                _script.stack.pop();
+                _script.stack.push(abi.encodePacked(isEqual));
                 if (opcodenum == OP_EQUALVERIFY) {
                     if (isEqual) {
-                        _script.popStack();
+                        _script.stack.pop();
                     } else {
                         return (false, "SCRIPT_ERR_EQUALVERIFY");
                     }
@@ -235,24 +238,37 @@ contract BitcoinScript {
                 opcodenum == OP_IF ||
                 opcodenum == OP_NOTIF
             ) {
+                if (_script.stack.size < 1) {
+                    return (false, "SCRIPT_ERR_UNBALANCED_CONDITIONAL");
+                }
+                buf = _script.stack.peek();
+                bool isTrue = (buf.toUint256() != 0);
+                if (opcodenum == OP_NOTIF) {
+                    isTrue = !isTrue;
+                }
+                _script.stack.pop();
+                _script.stack.push(isTrue.toBytesBool());
+            } else if (
+                opcodenum == OP_ELSE
+            ) {
                 
             } else if (
                 opcodenum == OP_DROP
             ) {
-                if (_script.stackSize < 1) {
+                if (_script.stack.size < 1) {
                     return (false, "SCRIPT_ERR_INVALID_STACK_OPERATION");
                 }
-                _script.popStack();
+                _script.stack.pop();
             } else if (
                 opcodenum == OP_RIPEMD160 ||
                 opcodenum == OP_SHA256 ||
                 opcodenum == OP_HASH160 ||
                 opcodenum == OP_HASH256
             ) {
-                if (_script.stackSize < 1) {
+                if (_script.stack.size < 1) {
                     return (false, "SCRIPT_ERR_INVALID_STACK_OPERATION");
                 }
-                buf = _script.peekStack();
+                buf = _script.stack.peek();
                 bytes32 bufHash;
                 if (opcodenum == OP_RIPEMD160) {
                     bufHash = ripemd160(buf);
@@ -263,8 +279,8 @@ contract BitcoinScript {
                 } else if (opcodenum == OP_HASH256) {
                     bufHash = keccak256(abi.encodePacked(keccak256(buf)));
                 }
-                _script.popStack();
-                _script.pushStackItem(abi.encodePacked(bufHash));
+                _script.stack.pop();
+                _script.stack.push(abi.encodePacked(bufHash));
             }
         }
 

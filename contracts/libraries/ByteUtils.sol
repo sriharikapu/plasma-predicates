@@ -99,10 +99,18 @@ library ByteUtils {
         return success;
     }
 
-    function toBytes(uint8 _bytes) internal pure returns (bytes memory) {
+    function toBytesBool(bool _value) internal pure returns (bytes memory) {
         bytes memory result;
         assembly {
-            result := mload(add(_bytes, 0x20))
+            result := mload(add(_value, 0x20))
+        }
+        return result;
+    }
+
+    function toBytes(uint8 _value) internal pure returns (bytes memory) {
+        bytes memory result;
+        assembly {
+            result := mload(add(_value, 0x20))
         }
         return result;
     }
