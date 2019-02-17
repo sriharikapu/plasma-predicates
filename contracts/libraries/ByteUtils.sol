@@ -115,12 +115,56 @@ library ByteUtils {
         return result;
     }
 
+    function toBool(bytes memory _bytes) internal pure returns (bool) {
+        return toUint256(_bytes) != 0;
+    }
+
     function toUint256(bytes memory _bytes) internal pure returns (uint256) {
         uint256 result;
         assembly {
             result := mload(add(_bytes, 0x20))
         }
         return result;
+    }
+
+    function slice32(bytes memory _bytes, uint offset) internal pure returns (bytes32) {
+        bytes32 out;
+
+        for (uint i = 0; i < 32; i++) {
+            out |= bytes32(_bytes[offset + i] & 0xff) >> (i * 8);
+        }
+
+        return out;
+    }
+
+    function toUint16(bytes memory _bytes, uint _start) internal pure returns (uint16) {
+        uint16 tempUint;
+    
+        assembly {
+            tempUint := mload(add(add(_bytes, 0x10), _start))
+        }
+    
+        return tempUint;
+    }
+
+    function toUint(bytes memory _bytes, uint _start) internal pure returns (uint256) {
+        uint256 tempUint;
+
+        assembly {
+            tempUint := mload(add(add(_bytes, 0x20), _start))
+        }
+
+        return tempUint;
+    }
+
+    function toAddress(bytes memory _bytes, uint _start) internal pure returns (address) {
+        address tempAddress;
+
+        assembly {
+            tempAddress := div(mload(add(add(_bytes, 0x20), _start)), 0x1000000000000000000000000)
+        }
+
+        return tempAddress;
     }
 
     function reverse(bytes memory _bytes) internal pure returns (bytes memory) {

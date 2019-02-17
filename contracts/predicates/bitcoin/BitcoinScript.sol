@@ -5,6 +5,7 @@ import "./BitcoinLib.sol";
 import "./StackLib.sol";
 import "./BufferReader.sol";
 import "../../libraries/ByteUtils.sol";
+import "../../libraries/ECRecovery.sol";
 
 contract BitcoinScript {
     using BufferReader for BufferReader.Reader;
@@ -242,16 +243,27 @@ contract BitcoinScript {
                     return (false, "SCRIPT_ERR_UNBALANCED_CONDITIONAL");
                 }
                 buf = _script.stack.peek();
-                bool isTrue = (buf.toUint256() != 0);
+                bool value = (buf.toUint256() != 0);
                 if (opcodenum == OP_NOTIF) {
-                    isTrue = !isTrue;
+                    value = !value;
                 }
                 _script.stack.pop();
-                _script.stack.push(isTrue.toBytesBool());
+                _script.execStack.push(value.toBytesBool());
             } else if (
                 opcodenum == OP_ELSE
             ) {
-                
+                if (_script.execStack.size == 0) {
+                    return (false, "SCRIPT_ERR_UNBALANCED_CONDITIONAL");
+                }
+                bool value = _script.execStack.pop().toBool();
+                _script.execStack.push((!value).toBytesBool());
+            } else if (
+                opcodenum == OP_ENDIF
+            ) {
+                if (_script.execStack.size == 0) {
+                    return (false, "SCRIPT_ERR_UNBALANCED_CONDITIONAL");
+                }
+                _script.execStack.pop();
             } else if (
                 opcodenum == OP_DROP
             ) {
@@ -281,6 +293,24 @@ contract BitcoinScript {
                 }
                 _script.stack.pop();
                 _script.stack.push(abi.encodePacked(bufHash));
+            } else if (
+                opcodenum == OP_CODESEPARATOR
+            ) {
+                _script.separator = _step;
+            } else if (
+                opcodenum == OP_CHECKSIG ||
+                opcodenum == OP_CHECKSIGVERIFY
+            ) {
+                if (_script.stack.size < 2) {
+                    return (false, "SCRIPT_ERR_INVALID_STACK_OPERATION");
+                }
+                /*
+                bytes bufSig = _script.stack.pick(1);
+                bytes bufPubkey = _script.stack.pick(0);
+
+                BitcoinLib.Script memory newScript = _script.subScript(_script.separator);
+                newScript.deleteChunk(bufSig);
+                */
             }
         }
 
