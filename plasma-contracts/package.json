@@ -1,0 +1,62 @@
+{
+  "name": "plasma-contracts",
+  "version": "0.0.4-beta.1",
+  "description": "PG Plasma smart contracts",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --timeout 10000",
+    "test-debug": "mocha debug",
+    "lint": "./node_modules/.bin/eslint test/"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test && git add compiled-contracts/ && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,json,css,md}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/plasma-group/plasma-contracts.git"
+  },
+  "keywords": [
+    "plasma",
+    "ethereum"
+  ],
+  "author": "Plasma Group",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/plasma-group/plasma-contracts/issues"
+  },
+  "homepage": "https://github.com/plasma-group/plasma-contracts#readme",
+  "dependencies": {
+    "bn.js": "^4.11.8",
+    "dotenv": "^6.2.0",
+    "ganache-cli": "^6.2.5",
+    "plasma-utils": "^0.0.2",
+    "web3": "1.0.0-beta.37"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "debug": "^4.1.1",
+    "eslint": "^5.12.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.0",
+    "mocha": "^5.2.0",
+    "prettier": "^1.15.3",
+    "websocket": "^1.0.28"
+  }
+}

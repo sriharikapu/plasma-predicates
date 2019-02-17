@@ -1,0 +1,19 @@
+language: generic
+
+before_install:
+  - sudo apt-get -y install build-essential libssl-dev libffi-dev python-setuptools
+  - wget https://www.python.org/ftp/python/3.6.2/Python-3.6.2.tgz && tar xfz Python-3.6.2.tgz
+  - cd Python-3.6.2/ && ./configure --prefix /usr/local/lib/python3.6 && sudo make && sudo make install && cd ..
+  - pyenv local 3.6 2.7
+  - python3.6 -m venv ~/vyper-venv
+  - source ~/vyper-venv/bin/activate
+  - git clone https://github.com/ethereum/vyper.git
+  - cd vyper && make && cd ..
+  - npm install --global ganache-cli
+
+install:
+  - npm install
+
+script:
+  - (ganache-cli &) && while ! curl -s localhost:8545 >/dev/null; do sleep 1; done
+  - npm test
