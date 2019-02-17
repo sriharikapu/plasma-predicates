@@ -64,4 +64,26 @@ contract('SimpleRangeTransferPredicate', () => {
       assert.isFalse(canCancel)
     })
   })
+
+  describe('canStartExit', () => {
+    it('should allow the owner to start an exit', async () => {
+      const instance = await SimpleRangeTransferPredicate.deployed()
+      const exit = getExit(account1, 0, 100)
+      const witness = await getWitness(account1, 0, 100)
+      const canStartExit = await instance.canStartExit(exit, witness, {
+        from: account1.address
+      })
+      assert.isTrue(canStartExit)
+    })
+
+    it('should not allow a different owner to start an exit', async () => {
+      const instance = await SimpleRangeTransferPredicate.deployed()
+      const exit = getExit(account1, 0, 100)
+      const witness = await getWitness(account1, 0, 100)
+      const canStartExit = await instance.canStartExit(exit, witness, {
+        from: account2.address
+      })
+      assert.isFalse(canStartExit)
+    })
+  })
 })
