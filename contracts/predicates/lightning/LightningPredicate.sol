@@ -31,7 +31,7 @@ contract LightningPredicate is IPredicate {
     ) public view returns (bool) {
         Witness memory witness = bytesToWitness(_witness);
         StateData memory state = bytesToStateData(_exit.state);
-
+        
         // Check valid lightning spend.
         bool validSpend = Lightning.checkValidSpend(witness.witnesses, state.inputScripts, witness.outputScripts);
 

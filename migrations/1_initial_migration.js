@@ -3,6 +3,7 @@ var ECRecovery = artifacts.require("./ECRecovery.sol");
 var SimpleRangeTransferPredicate = artifacts.require("./SimpleRangeTransferPredicate.sol");
 var SimpleMultiSigPredicate = artifacts.require("./SimpleMultiSigPredicate.sol");
 var SimplePaymentChannelPredicate = artifacts.require("./SimplePaymentChannelPredicate.sol");
+var LightningPredicate = artifacts.require("./LightningPredicate.sol");
 var Migrations = artifacts.require("./Migrations.sol");
 
 module.exports = function(deployer) {
@@ -11,5 +12,6 @@ module.exports = function(deployer) {
   deployer.deploy(SimpleRangeTransferPredicate);
   deployer.deploy(SimpleMultiSigPredicate);
   deployer.deploy(SimplePaymentChannelPredicate);
+  deployer.deploy(LightningPredicate);
   deployer.deploy(Migrations);
 };

@@ -30,7 +30,7 @@ library Lightning {
         uint cursor = 0;
         uint totalOutputValue = 0;
         uint index = 0;
-        
+
         while (cursor < outputScripts.length) {
             uint value = outputScripts.toUint(cursor);
             cursor += 32;
@@ -54,9 +54,6 @@ library Lightning {
 
         // outputid (32), witness
         while (cursor < witnesses.length) {
-            // bytes32 outputId = witnesses.slice32(cursor);
-            cursor += 32;
-
             uint16 witnessLen = witnesses.toUint16(cursor);
             cursor += 16;
 
@@ -95,7 +92,7 @@ library Lightning {
 
         return out;
     }
-    
+
     function verify(bytes32 data, address expected, bytes memory sig) internal pure returns (bool) {
         return ECRecovery.recover(data, sig) == expected;
     }
@@ -114,7 +111,7 @@ library Lightning {
         if (sigil == LOCAL_COMMIT_SIGIL) {
             return isLocalCommitSpendable(out, witness, outputScripts);
         }
-        
+
         if (sigil == HTLC_OFFER_SIGIL) {
             return isHTLCOfferSpendable(out, witness);
         }
@@ -136,7 +133,7 @@ library Lightning {
         bytes memory sigA = witness.slice(cursor, 65);
         cursor += 65;
         bytes memory sigB = witness.slice(cursor, 65);
-        
+
         address partyA = out.script.toAddress(1);
         address partyB = out.script.toAddress(21);
         return verify(hash, partyA, sigA) && verify(hash, partyB, sigB);
